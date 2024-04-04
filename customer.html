@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food Ordering Website</title>
+    <link rel="stylesheet" href="style_customer.css" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container">
+      <h1>Welcome to Food Ordering</h1>
+      <div id="food-list"></div>
+      <button onclick="placeOrder()">Place Order</button>
+    </div>
+
+    <script>
+      const foodItems = [
+        { id: 1, name: "Pizza", price: 10, image: "pizza.jpg" },
+        { id: 2, name: "Burger", price: 5, image: "burger.jpg" },
+        { id: 3, name: "Salad", price: 7, image: "salad.jpg" },
+      ];
+
+      function displayFoodItems() {
+        const foodList = document.getElementById("food-list");
+        foodList.innerHTML = "";
+        foodItems.forEach((item) => {
+          const foodItem = document.createElement("div");
+          foodItem.classList.add("food-item");
+          foodItem.innerHTML = `
+                    <img src="${item.image}" alt="${item.name}">
+                    <h3>${item.name}</h3>
+                    <p>₹${item.price}</p>
+                    <button onclick="addToCart(${item.id})">Add to Cart</button>
+                `;
+          foodList.appendChild(foodItem);
+        });
+      }
+
+      function addToCart(itemId) {
+        // Dummy logic to add item to cart
+        console.log(`Added item with ID ${itemId} to cart.`);
+      }
+
+      function placeOrder() {
+        // Dummy logic to place order
+        console.log("Order placed successfully!");
+        alert("Order placed successfully!");
+      }
+
+      displayFoodItems();
+    </script>
+  </body>
+</html>
